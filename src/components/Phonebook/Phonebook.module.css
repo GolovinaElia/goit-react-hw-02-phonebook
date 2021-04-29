@@ -1,0 +1,12 @@
+.phonebook {
+  margin: auto;
+  max-width: 300px;
+  text-align: start;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
