@@ -4,21 +4,21 @@ import Phonebook from './components/Phonebook/Phonebook';
 class App extends Component {
   state = {
   contacts: [],
-  name: ''
+    name: '',
+  value: 'jjjj'
 }
 
-//   handleIncrement = event => {
-//     const name = event.target.name;
-//     this.setState(prevState => ({
-//       [name]: prevState[name] + 1,
-//     }));
-//   };
+  handleInputChange = event => {
+    console.log(event);
+  };
 
   render() {
     
 
     return (
-      <Phonebook />
+      <Phonebook>
+        <input type="text" value={this.state.inputValue} onChange={this.handleInputChange}/>
+      </Phonebook>
     
     );
   }
