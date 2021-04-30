@@ -8,8 +8,8 @@ class App extends Component {
     name: ''
 }
 
-  handleInputChange = event => {
-    console.log(event);
+  handleNameChange = event => {
+  this.setState({name: event.currentTarget.value})
   };
 
   render() {
@@ -17,7 +17,9 @@ class App extends Component {
 
     return (
       <>
-      <Phonebook
+        <Phonebook
+          value={this.state.name}
+          onChange={this.handleNameChange}
       />
 
       <Contacts />

@@ -1,29 +1,31 @@
 // import PropTypes from 'prop-types';
-import style from './Phonebook.module.css';
+import style from "./Phonebook.module.css"
 
-const Phonebook = ({ name }) => (
-    <div className={style.phonebook}>
-        <h2 className={style.title}>Phonebook</h2>
-        <div className={style.form}>
-            <label htmlFor="">Name
-               <input
-                className={style.input}
-                type="text"
-            name={name}
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-            required
+const Phonebook = ({ name, onChange }) => (
+  <div className={style.phonebook}>
+    <h2 className={style.title}>Phonebook</h2>
+        <div className={style.container}>
+            <form>
+      <label htmlFor="">
+        Name
+        <input
+          className={style.input}
+          type="text"
+        //  name={name}
+        value={name}
+        onChange={onChange}
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+          required
         />
-            </label>
-        <button
-            className={style.button}
-            type="button"
-        >
-            Add contact
-        </button>
+      </label>
+      <button className={style.button} type="button">
+                    Add contact
+      </button>
+     </form>
     </div>
-    </div>
-);
+  </div>
+)
 // Phonebook.propTypes = {
 //   good: PropTypes.number.isRequired,
 //   neutral: PropTypes.number.isRequired,
@@ -32,4 +34,4 @@ const Phonebook = ({ name }) => (
 //   positivePercentage: PropTypes.number.isRequired,
 // };
 
-export default Phonebook;
+export default Phonebook

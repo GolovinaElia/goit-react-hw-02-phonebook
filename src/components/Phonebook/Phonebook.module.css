@@ -1,13 +1,21 @@
 .phonebook {
   margin: auto;
-  max-width: 300px;
+  max-width: 500px;
   text-align: start;
 }
 
-.form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+form {
+  position: relative;
+  width: 300px;
+  padding: 15px;
 }
 
+.container {
+  border: 1px solid #2a2a2a;
+}
 
+input {
+  margin-top: 5px;
+  margin-bottom: 35px;
+  width: 100%;
+}
