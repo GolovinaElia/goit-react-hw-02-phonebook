@@ -19,3 +19,8 @@ input {
   margin-bottom: 35px;
   width: 100%;
 }
+
+button:hover,
+button:focus {
+  background-color: #1976d2;
+}

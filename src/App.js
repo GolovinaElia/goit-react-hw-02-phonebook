@@ -1,28 +1,37 @@
 import React, { Component } from 'react';
-import Phonebook from './components/Phonebook/Phonebook';
-import Contacts from './components/Contacs/Contacs';
+import { v4 } from 'uuid';
+import Form from './components/Form/Form';
+import Contacts from './components/Contacts/Contacts';
 
 class App extends Component {
   state = {
-  contacts: [],
+    contacts: [],
     name: ''
-}
-
-  handleNameChange = event => {
-  this.setState({name: event.currentTarget.value})
   };
 
-  render() {
-    
+  formSubmitHandler = data => {
+    this.addContacts(data);
+    console.log(this.state.contacts);
+  };
 
+  addContacts = name => {
+    // this.state.contacts.push(data);
+  const contact = [{
+      id: v4(),
+      name: name
+    }];
+
+    this.setState(prevState => ({
+contacts: [contact, ...prevState.contacts]
+     }))
+  };
+ 
+  render() {
     return (
       <>
-        <Phonebook
-          value={this.state.name}
-          onChange={this.handleNameChange}
+        <Form onSubmit={this.formSubmitHandler}
       />
-
-      <Contacts />
+        <Contacts contacts={this.state.contacts}/>
     </>
     );
   }
