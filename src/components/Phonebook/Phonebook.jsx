@@ -5,7 +5,8 @@ const Phonebook = ({ name }) => (
     <div className={style.phonebook}>
         <h2 className={style.title}>Phonebook</h2>
         <div className={style.form}>
-            <input
+            <label htmlFor="">Name
+               <input
                 className={style.input}
                 type="text"
             name={name}
@@ -13,13 +14,14 @@ const Phonebook = ({ name }) => (
             title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
             required
         />
+            </label>
         <button
             className={style.button}
             type="button"
         >
             Add contact
         </button>
-        </div>
+    </div>
     </div>
 );
 // Phonebook.propTypes = {

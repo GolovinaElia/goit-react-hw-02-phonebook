@@ -2,15 +2,12 @@
   margin: auto;
   max-width: 300px;
   text-align: start;
-  font-weight: 500;
-  font-size: 14px;
 }
 
-/* .form {
-  display: block;
-  width: 150px;
-  height: 150px;
-  border: 1px solid #2a2a2a;
+.form {
   display: flex;
-  justify-content: start;
-} */
+  justify-content: center;
+  align-items: center;
+}
+
+

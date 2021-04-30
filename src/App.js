@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Phonebook from './components/Phonebook/Phonebook';
+import Contacts from './components/Contacs/Contacs';
 
 class App extends Component {
   state = {
   contacts: [],
-    name: '',
-  value: 'jjjj'
+    name: ''
 }
 
   handleInputChange = event => {
@@ -16,10 +16,12 @@ class App extends Component {
     
 
     return (
-      <Phonebook>
-        <input type="text" value={this.state.inputValue} onChange={this.handleInputChange}/>
-      </Phonebook>
-    
+      <>
+      <Phonebook
+      />
+
+      <Contacts />
+    </>
     );
   }
 }
