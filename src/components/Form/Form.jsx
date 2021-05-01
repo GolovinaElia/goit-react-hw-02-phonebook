@@ -4,7 +4,8 @@ import style from "./Form.module.css";
 
 class Form extends Component {
   state = {
-    name: ''
+    name: '',
+    number: ''
   };
 
   handleChange = event => {
@@ -42,7 +43,7 @@ class Form extends Component {
                 onChange={this.handleChange}
           />
             </label>
-            {/* <label>
+            <label>
               Number
                <input
             className={style.input}
@@ -55,7 +56,7 @@ class Form extends Component {
             value={this.state.number}
             onChange={this.handleChange}
           />
-            </label> */}
+            </label>
         <button className={style.button} type="submit">Add contact</button>
       </form>
     </div>
