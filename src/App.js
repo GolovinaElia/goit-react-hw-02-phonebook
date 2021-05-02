@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
-// import { v4 } from 'uuid';
-// import shortid from 'shortid';
+import { v4 as uuidv4 } from 'uuid';
 import Form from './components/Form/Form';
 import Contacts from './components/Contacts/Contacts';
 
 class App extends Component {
   state = {
     contacts: [],
-    name: ''
+    name: '',
+    number: ''
   };
 
-  formSubmitHandler = data => {
-    this.addContacts(data);
-    console.log(this.state.contacts);
-  };
+  // formSubmitHandler = data => {
+  //   this.addContacts(data);
+  //   console.log(this.state.contacts);
+  // };
 
-  addContacts = data => {
-    this.state.contacts.push(data);
-//   const contact = [{
-//       id: shortid.generate(),
-//       name: name
-//     }];
+  addContacts = () => {
+    // this.state.contacts.push(data);
+  const contacts = {
+    id: uuidv4(),
+    name: this.state.name,
+    number: this.state.number
+    };
 
 //     this.setState(prevState => ({
 // contacts: [contact, ...prevState.contacts]
@@ -30,9 +31,9 @@ class App extends Component {
   render() {
     return (
       <>
-        <Form onSubmit={this.formSubmitHandler}
+        <Form onSubmit={this.addContacts}
       />
-        <Contacts contacts={this.state.contacts}/>
+        <Contacts contacts={this.contacts}/>
     </>
     );
   }
