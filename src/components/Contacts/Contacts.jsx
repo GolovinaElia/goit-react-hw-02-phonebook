@@ -7,7 +7,11 @@ const Contacts = ({ contacts }) => (
         <h2 className={style.title}>Contacts</h2>
 <ul className={style.contactsList}>
         {contacts.map(({id, name, number}) => (
-            <li key={ uuidv4 }>{name}: {number}</li>
+            <li key={uuidv4()}>
+                <p>
+                    <span>{name}</span>: {number}
+                </p>
+            </li>
         ))}
     </ul>
     </div>

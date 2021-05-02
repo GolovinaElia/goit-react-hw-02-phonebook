@@ -5,9 +5,7 @@ import Contacts from './components/Contacts/Contacts';
 
 class App extends Component {
   state = {
-    contacts: [],
-    name: '',
-    number: ''
+    contacts: []
   };
 
   // formSubmitHandler = data => {
@@ -15,12 +13,12 @@ class App extends Component {
   //   console.log(this.state.contacts);
   // };
 
-  addContacts = () => {
+  addContacts = (name, number) => {
     // this.state.contacts.push(data);
-  const contacts = {
+  const contact = {
     id: uuidv4(),
-    name: this.state.name,
-    number: this.state.number
+    name,
+    number
     };
 
 //     this.setState(prevState => ({
@@ -31,9 +29,8 @@ class App extends Component {
   render() {
     return (
       <>
-        <Form onSubmit={this.addContacts}
-      />
-        <Contacts contacts={this.contacts}/>
+        <Form onSubmit={this.addContacts}/>
+        <Contacts />
     </>
     );
   }
