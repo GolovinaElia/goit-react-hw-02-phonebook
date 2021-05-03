@@ -14,23 +14,23 @@ class App extends Component {
   // };
 
   addContacts = (name, number) => {
-    // this.state.contacts.push(data);
-  const contact = {
+    // this.state.contacts.push(name);
+  const contact = [{
     id: uuidv4(),
     name,
     number
-    };
+    }];
 
-//     this.setState(prevState => ({
-// contacts: [contact, ...prevState.contacts]
-//      }))
+    this.setState(({contacts}) => ({
+contacts: [...contacts, contact]
+     }))
   };
  
   render() {
     return (
       <>
         <Form onSubmit={this.addContacts}/>
-        <Contacts />
+        <Contacts contacts={this.state.contacts}/>
     </>
     );
   }
