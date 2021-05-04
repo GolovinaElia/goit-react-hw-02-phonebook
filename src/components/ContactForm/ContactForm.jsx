@@ -28,8 +28,8 @@ class Form extends Component {
       <div className={style.phonebook}>
     <h1 className={style.title}>Phonebook</h1>
     <div className={style.container}>
-      <form onSubmit={this.handleSubmit}>
-        <label>
+      <form className={style.containerForm} onSubmit={this.handleSubmit}>
+        <label className={style.containerLabel}>
           Name
         <input
             className={style.input}
@@ -43,7 +43,7 @@ class Form extends Component {
                 onChange={this.handleChange}
           />
             </label>
-            <label>
+            <label className={style.containerLabel}>
               Number
                <input
             className={style.input}

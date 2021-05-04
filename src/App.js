@@ -11,20 +11,38 @@ class App extends Component {
   };
 
   addContacts = data => {
-    // const { name } = data;
+    const { name } = data;
     const { contacts } = this.state;
-
-    this.setState(prevState => ({
-contacts: [...prevState.contacts, data]
-     }))
+    const inputName = contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase());
+    
+    if (inputName) {
+      alert(`${name} is already in contacts`);
+    } else {
+      this.setState(prevState => ({
+        contacts: [...prevState.contacts, data]
+      }));
+    }
   };
+
+  changeFilter = event => {
+    this.setState({ filter: event.currentTarget.value });
+  };
+
+  getVisibleContact = () => {
+    const { filter, contacts } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+    return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
+  };
+
+
  
   render() {
+    const visibleContacts = this.getVisibleContact();
     return (
       <>
         <ContactForm onSubmit={this.addContacts} />
-        <Filter />
-        <ContactList contacts={this.state.contacts}/>
+        <Filter value={this.state.filter} onChange={this.changeFilter}/>
+        <ContactList contacts={visibleContacts}/>
     </>
     );
   }
