@@ -1,36 +1,30 @@
 import React, { Component } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import Form from './components/Form/Form';
-import Contacts from './components/Contacts/Contacts';
+import ContactForm from './components/ContactForm/ContactForm';
+import ContactList from './components/ContactList/ContactList';
+import Filter from './components/Filter/Filter';
+import contactArr from './contacts.json';
 
 class App extends Component {
   state = {
-    contacts: []
+    contacts: contactArr,
+    filter: ''
   };
 
-  // formSubmitHandler = data => {
-  //   this.addContacts(data);
-  //   console.log(this.state.contacts);
-  // };
+  addContacts = data => {
+    // const { name } = data;
+    const { contacts } = this.state;
 
-  addContacts = (name, number) => {
-    // this.state.contacts.push(name);
-  const contact = [{
-    id: uuidv4(),
-    name,
-    number
-    }];
-
-    this.setState(({contacts}) => ({
-contacts: [...contacts, contact]
+    this.setState(prevState => ({
+contacts: [...prevState.contacts, data]
      }))
   };
  
   render() {
     return (
       <>
-        <Form onSubmit={this.addContacts}/>
-        <Contacts contacts={this.state.contacts}/>
+        <ContactForm onSubmit={this.addContacts} />
+        <Filter />
+        <ContactList contacts={this.state.contacts}/>
     </>
     );
   }
