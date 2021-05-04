@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import style from './App.module.css';
 import ContactForm from './components/ContactForm/ContactForm';
 import ContactList from './components/ContactList/ContactList';
 import Filter from './components/Filter/Filter';
@@ -34,16 +35,23 @@ class App extends Component {
     return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
   };
 
+  deleteContact = (contactId) => {
+    this.setState(prevState => ({
+  contacts: prevState.contacts.filter(contact => contact.id !== contactId)
+}))
+  };
 
- 
   render() {
     const visibleContacts = this.getVisibleContact();
     return (
-      <>
+      <div className={style.phonebook}>
+        <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContacts} />
+
+        <h2>Contacts</h2>
         <Filter value={this.state.filter} onChange={this.changeFilter}/>
-        <ContactList contacts={visibleContacts}/>
-    </>
+        <ContactList contacts={visibleContacts} onDeleteContact={this.deleteContact}/>
+    </div>
     );
   }
 }

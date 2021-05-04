@@ -5,15 +5,6 @@
   font-weight: 500;
 }
 
-.title {
-  margin: 0;
-}
-
-.contactsItem {
-  display: flex;
-  align-items: center;
-}
-
 .buttonContacts {
   width: 50px;
   font-weight: 300;
